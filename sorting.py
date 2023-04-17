@@ -22,13 +22,17 @@ def read_data(file_name):
                     data[header].append(int(value))
         return data
 
-def selection_sort(list):
+def selection_sort(list, direction="ascending"):
 
     for i in range(len(list)):
         min_idx = i
         for num_idx in range(i + 1, len(list)):
-            if list[min_idx] > list[num_idx]:
-                min_idx = num_idx
+            if direction == "ascending":
+                if list[min_idx] > list[num_idx]:
+                    min_idx = num_idx
+            elif direction == "descending":
+                if list[min_idx] < list[num_idx]:
+                    min_idx = num_idx
         list[i], list[min_idx] = list[min_idx], list[i]
 
     return list
